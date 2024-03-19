@@ -1,0 +1,54 @@
+[project]
+name = "pytesthookcsone"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "pytestHooksLearn", email = "https://github.com/sensureDk/pytestHooksLearn.git"},
+]
+dependencies = [
+    "isort>=5.13.2",
+    "black>=24.3.0",
+    "flake8>=5.0.4",
+    "pytest>=8.1.1",
+    "requests>=2.31.0",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.build]
+package-dir = "src"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+skip = [".venv"]
+
+
+[tool.black]
+exclude = '''
+/(
+    \ .git
+    | \.hg
+    | \.tox
+    | \.venv
+    | buck-out
+    | build
+    | dist
+)/
+'''
+
+
+[tool.pdm.scripts]
+check = {composite=[
+    "isort .",
+    "black .",
+    "flake8 .",
+]}
+test = "pytest"
+
+
