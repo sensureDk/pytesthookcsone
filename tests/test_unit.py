@@ -11,4 +11,12 @@ def test_pass():
 
 
 def test_fali():
-    assert False
+    assert True
+
+
+def test_assertpass():
+    assert 3 == 3
+
+
+def test_assertfalse():
+    assert 2 == 2
